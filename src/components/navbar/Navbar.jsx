@@ -7,9 +7,9 @@ export default function Navbar() {
   return (
     <nav className='navbar'>
         <div className="nav">
-            <div className="nav__brand">
+            <Link className="nav__brand" to='/'>
                 <img src={logo} alt="" />
-            </div>
+            </Link>
             <div className="nav__links">
                 <Link className="link" to='/'>
                     Accueil
