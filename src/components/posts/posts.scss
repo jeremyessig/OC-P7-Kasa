@@ -1,0 +1,12 @@
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  margin: 2rem;
+  margin-top: 80px;
+  background-color: #f6f6f6;
+  padding: 2rem;
+  border-radius: 26px;
+  gap: 2rem;
+  align-items: center;
+  justify-items: center;
+}
