@@ -15,6 +15,18 @@
   &__title {
     grid-column: 1;
     grid-row: 2;
+    color: #ff6060;
+    h1 {
+      font-weight: 500;
+      font-size: 2.6rem;
+      margin: 0;
+    }
+    h4 {
+      margin: 0;
+      margin-top: 0.4rem;
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
   }
 
   &__host {
