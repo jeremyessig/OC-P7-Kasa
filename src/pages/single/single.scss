@@ -1,0 +1,48 @@
+.single {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 415px 80px 60px 1fr;
+  padding: 0 2rem;
+  margin-top: 140px;
+  width: auto;
+  font-family: "Montserrat", sans-serif;
+
+  &__carousel {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+  &__title {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  &__host {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    .host {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      &__name {
+        color: #ff6060;
+      }
+      &__picture {
+        display: flex;
+        width: 64px;
+        height: 64px;
+        border-radius: 100%;
+        overflow: hidden;
+        img {
+          object-fit: contain;
+          object-position: center;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
