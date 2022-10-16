@@ -19,13 +19,13 @@ const Single = () => {
     useEffect(()=>{
         const getPost = async () => {
             const res = await axios.get('../data.json');
-            const postFetched = res.data.find(post => post.id === path);
-            setPost(postFetched);
-            setHost(postFetched.host);
-            setTags(postFetched.tags);
+            const data = res.data.find(post => post.id === path);
+            setPost(data);
+            setHost(data.host);
+            setTags(data.tags);
         }
         getPost();
-    });
+    }, []);
 
     return (
         <div className='single'>
