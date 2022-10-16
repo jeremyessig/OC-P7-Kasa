@@ -26,9 +26,9 @@ const Dropdown = ( {props} ) => {
             </div>
             <div className="dropdown__text">
                 {
-                    texts.map(text => {
+                    texts.map((text, index ) => {
                         return(
-                            <p> {text} </p>
+                            <p key={index}> {text} </p>
                         )
                     })
                 }

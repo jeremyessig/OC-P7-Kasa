@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import {NavLink } from 'react-router-dom';
 import logo from './logo.png'
 import './navbar.scss';
 
@@ -7,16 +7,16 @@ export default function Navbar() {
   return (
     <nav className='navbar'>
         <div className="nav">
-            <Link className="nav__brand" to='/'>
+            <NavLink className="nav__brand" to='/'>
                 <img src={logo} alt="" />
-            </Link>
+            </NavLink>
             <div className="nav__links">
-                <Link className="link" to='/'>
+                <NavLink to='/' className={(nav) => (nav.isActive ? "--active" : "")}>
                     Accueil
-                </Link>
-                <Link className="link" to='/about'>
+                </NavLink>
+                <NavLink to='/about' className={(nav) => (nav.isActive ? "--active" : "")}>
                     A propos
-                </Link>
+                </NavLink>
             </div>
         </div>
     </nav>

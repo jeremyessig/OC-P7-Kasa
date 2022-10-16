@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import Tag from '../../components/tag/Tag';
 import Rating from '../../components/rating/Rating';
 import Dropdown from '../../components/dropdown/Dropdown';
+import Carousel from '../../components/carousel/Carousel';
 
 const Single = () => {
 
@@ -18,6 +19,7 @@ const Single = () => {
     const [tags, setTags] = useState([]);
     const [desc, setDesc] = useState({});
     const [features, setFeatures] = useState({});
+    const [pictures, setPictures] = useState([]);
 
     // BUG: React fait une boucle infinie !!!
     useEffect(()=>{
@@ -30,13 +32,16 @@ const Single = () => {
             setDesc({label: 'Description', text: data.description});
             setFeatures({label: 'Equipements', text: data.equipments});
             setTags(data.tags);
+            setPictures(data.pictures);
         }
         getPost();
     }, []);
 
     return (
         <div className='single'>
-            <div className="single__carousel"></div>
+            <div className="single__carousel">
+                <Carousel pictures={pictures} />
+            </div>
             <div className="single__container">
                 <div className="left">
                     <div className="left__title">
@@ -45,9 +50,9 @@ const Single = () => {
                     </div>
                     <div className="left__tags">
                         {
-                            tags.map(tag => {
+                            tags.map((tag, index) => {
                                 return (
-                                <Tag tag={tag} />
+                                <Tag key={index} tag={tag} />
                                 )
                             })
                         }
