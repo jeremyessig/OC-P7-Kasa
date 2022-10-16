@@ -1,9 +1,10 @@
 import './about.scss';
 import BannerCover from './banner.jpg'
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from '../../components/banner/Banner';
 import Dropdown from '../../components/dropdown/Dropdown';
+import axios from "axios";
 
 const About = () => {
         const banner = {
@@ -11,15 +12,24 @@ const About = () => {
         cover: BannerCover
     }
 
-    const dp = {
-        label: "Que dois-je faire ?",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos minima quia, minus dolor vel velit! Voluptatum obcaecati possimus doloribus! Deleniti doloremque obcaecati culpa. Laboriosam animi aperiam at, illum excepturi ipsum."
-    }
+    const [data, setData] = useState([]);
+
+    useEffect(()=>{
+            axios
+            .get('./aboutData.json')
+            .then(res => setData(res.data));
+        }, []);
 
     return (
         <div className='about'>
             <Banner banner={banner} />
-            <Dropdown props={dp} />
+            <div className="dropdown-container">
+                {data.map((data, index) => {
+                    return (
+                    <Dropdown key={index} props={data} />
+                    )
+                })}
+            </div>
         </div>
     );
 };

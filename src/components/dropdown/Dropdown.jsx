@@ -13,7 +13,7 @@ const Dropdown = ( {props} ) => {
         <div className='dropdown' onClick={toggleVisibility}>
             <div className="dropdown__label">
                 <span>{props.label}</span>
-                <img src={arrow} alt="" />
+                <img src={arrow} alt="arrow" />
             </div>
             <div className="dropdown__text">
                 <p>{props.text}</p>

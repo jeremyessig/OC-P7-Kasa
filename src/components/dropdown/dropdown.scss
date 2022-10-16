@@ -1,6 +1,6 @@
 .dropdown {
   position: relative;
-  border-radius: 10px;
+  border-radius: 5px;
   height: 60px;
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
@@ -15,10 +15,13 @@
     width: calc(100% - 2rem);
     background-color: #ff6060;
     z-index: 5;
-    border-radius: 10px;
+    border-radius: 5px;
     color: white;
     font-size: 1.2rem;
     padding: 0 1rem;
+  }
+  &__text {
+    display: none;
   }
 
   &.--active {
@@ -32,7 +35,7 @@
       width: auto;
       height: fit-content;
       background-color: #f7f7f7;
-      border-radius: 10px;
+      border-radius: 5px;
       color: #ff6060;
       font-size: 1.1rem;
     }
