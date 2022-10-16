@@ -1,46 +1,58 @@
 .single {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 415px 80px 60px 1fr;
+  display: flex;
+  flex-direction: column;
   padding: 0 2rem;
   margin-top: 140px;
   margin-bottom: 4rem;
   width: auto;
   font-family: "Montserrat", sans-serif;
-  min-height: calc(100vh - 200px);
-  gap: 2rem;
 
   &__carousel {
-    grid-column: 1 / 3;
-    grid-row: 1;
   }
 
-  &__title {
-    grid-column: 1;
-    grid-row: 2;
-    color: #ff6060;
-    h1 {
-      font-weight: 500;
-      font-size: 2.6rem;
-      margin: 0;
-    }
-    h4 {
-      margin: 0;
-      margin-top: 0.4rem;
-      font-weight: 500;
-      font-size: 1.2rem;
-    }
-  }
-
-  &__host {
-    grid-column: 2;
-    grid-row: 2;
+  &__container {
     display: flex;
-    justify-content: end;
-    align-items: center;
-    .host {
+    margin: 2rem 0;
+    gap: 2rem;
+  }
+
+  .right,
+  .left {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 1rem;
+  }
+
+  .left {
+    &__title {
+      color: #ff6060;
+      h1 {
+        font-weight: 500;
+        font-size: 2.6rem;
+        margin: 0;
+      }
+      h4 {
+        margin: 0;
+        margin-top: 0.4rem;
+        font-weight: 500;
+        font-size: 1.2rem;
+      }
+    }
+
+    &__tags {
       display: flex;
       align-items: center;
+      height: 100%;
+    }
+  }
+
+  .right {
+    &__host {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: end;
       gap: 1rem;
       &__name {
         color: #ff6060;
@@ -59,27 +71,24 @@
         }
       }
     }
+    &__rating {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+    }
   }
 
-  &__rating {
-    grid-column: 2;
-    grid-row: 3;
+  &__info {
     display: flex;
-    justify-content: end;
-    align-items: center;
-  }
-
-  &__desc,
-  &__features {
-    grid-column: 1;
-    grid-row: 4;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    min-width: 100%;
-  }
-  &__features {
-    grid-column: 2;
+    max-width: 100%;
+    gap: 2rem;
+    &__desc,
+    &__features {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+      width: 100%;
+    }
   }
 }

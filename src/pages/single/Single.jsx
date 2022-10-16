@@ -29,6 +29,7 @@ const Single = () => {
             setTags(data.tags);
             setDesc({label: 'Description', text: data.description});
             setFeatures({label: 'Equipements', text: data.equipments});
+            setTags(data.tags);
         }
         getPost();
     }, []);
@@ -36,33 +37,43 @@ const Single = () => {
     return (
         <div className='single'>
             <div className="single__carousel"></div>
-            <div className="single__title">
-                <h1>{post.title}</h1>
-                <h4>{post.location}</h4>
-            </div>
-            <div className="single__host">
-                <div className="host">
-                    <div className="host__name">
-                        <span>{host.name}</span>
+            <div className="single__container">
+                <div className="left">
+                    <div className="left__title">
+                        <h1>{post.title}</h1>
+                        <h4>{post.location}</h4>
                     </div>
-                    <div className="host__picture">
-                        <img src={host.picture} alt={host.name} />
+                    <div className="left__tags">
+                        {
+                            tags.map(tag => {
+                                return (
+                                <Tag tag={tag} />
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+                <div className="right">
+                    <div className="right__host">
+                        <div className="right__host__name">
+                            <span>{host.name}</span>
+                        </div>
+                        <div className="right__host__picture">
+                            <img src={host.picture} alt={host.name} />
+                        </div>
+                    </div>
+                    <div className="right__rating">
+                        <Rating props={post} />
                     </div>
                 </div>
             </div>
-            <div className="single__tags">
-                {
-                console.log(post)
-                }
-            </div>
-            <div className="single__rating">
-                <Rating props={post} />
-            </div>
-            <div className="single__desc">
-                <Dropdown props={desc} />
-            </div>
-            <div className="single__features">
-                <Dropdown props={features} />
+            <div className="single__info">
+                <div className="single__info__desc">
+                    <Dropdown props={desc} />
+                </div>
+                <div className="single__info__features">
+                    <Dropdown props={features} />
+                </div>
             </div>
         </div>
     );
