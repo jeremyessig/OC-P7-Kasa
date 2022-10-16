@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import Tag from '../../components/tag/Tag';
 import Rating from '../../components/rating/Rating';
+import Dropdown from '../../components/dropdown/Dropdown';
 
 const Single = () => {
 
@@ -15,6 +16,8 @@ const Single = () => {
     // On doit destructurer sinon JS panique...
     const [host, setHost] = useState({});
     const [tags, setTags] = useState([]);
+    const [desc, setDesc] = useState({});
+    const [features, setFeatures] = useState({});
 
     // BUG: React fait une boucle infinie !!!
     useEffect(()=>{
@@ -24,6 +27,8 @@ const Single = () => {
             setPost(data);
             setHost(data.host);
             setTags(data.tags);
+            setDesc({label: 'Description', text: data.description});
+            setFeatures({label: 'Equipements', text: data.equipments});
         }
         getPost();
     }, []);
@@ -53,7 +58,12 @@ const Single = () => {
             <div className="single__rating">
                 <Rating props={post} />
             </div>
-            <div className="single__infos"></div>
+            <div className="single__desc">
+                <Dropdown props={desc} />
+            </div>
+            <div className="single__features">
+                <Dropdown props={features} />
+            </div>
         </div>
     );
 };
