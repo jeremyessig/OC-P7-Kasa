@@ -9,6 +9,15 @@ const Dropdown = ( {props} ) => {
         event.currentTarget.classList.toggle('--active');
     }
 
+    let texts = [];
+
+    // Découpe les textes en paragraphe en les injectant dans un tableau
+    if(props.text instanceof Array == false){
+        texts.push(props.text);
+    }else{
+        texts = props.text;
+    }
+
     return (
         <div className='dropdown' onClick={toggleVisibility}>
             <div className="dropdown__label">
@@ -16,7 +25,13 @@ const Dropdown = ( {props} ) => {
                 <img src={arrow} alt="arrow" />
             </div>
             <div className="dropdown__text">
-                <p>{props.text}</p>
+                {
+                    texts.map(text => {
+                        return(
+                            <p> {text} </p>
+                        )
+                    })
+                }
             </div>         
         </div>
     );

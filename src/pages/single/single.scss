@@ -6,6 +6,7 @@
   margin-bottom: 4rem;
   width: auto;
   font-family: "Montserrat", sans-serif;
+  min-height: calc(100vh - 360px - 4rem);
 
   &__carousel {
   }
@@ -44,6 +45,7 @@
       display: flex;
       align-items: center;
       height: 100%;
+      gap: 1rem;
     }
   }
 

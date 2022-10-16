@@ -28,17 +28,21 @@
   &.--active {
     height: fit-content;
     .dropdown__text {
-      padding: 0 1rem;
-      padding-top: 40px;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      padding-top: 48px;
       margin-top: 20px;
       left: 0;
-      display: flex;
       width: auto;
       height: fit-content;
       background-color: #f7f7f7;
       border-radius: 5px;
       color: #ff6060;
       font-size: 1.1rem;
+      p {
+        margin: 0.4rem 0;
+      }
     }
     .dropdown__label {
       img {
