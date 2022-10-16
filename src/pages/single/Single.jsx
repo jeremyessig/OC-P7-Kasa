@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Tag from '../../components/tag/Tag';
+import Rating from '../../components/rating/Rating';
 
 const Single = () => {
 
@@ -49,7 +50,9 @@ const Single = () => {
                 console.log(post)
                 }
             </div>
-            <div className="single__rating"></div>
+            <div className="single__rating">
+                <Rating props={post} />
+            </div>
             <div className="single__infos"></div>
         </div>
     );
