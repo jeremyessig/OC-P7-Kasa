@@ -44,3 +44,12 @@
     border-radius: 26px;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .banner {
+    &__title {
+      font-size: 2.1rem;
+      padding: 0.4rem;
+    }
+  }
+}

@@ -10,3 +10,13 @@
     gap: 2rem;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .about {
+    .dropdown-container {
+      margin: 3rem 0;
+      padding: 1rem 2rem;
+      gap: 2rem;
+    }
+  }
+}

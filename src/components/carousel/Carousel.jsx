@@ -7,12 +7,10 @@ import { useEffect } from 'react';
 const Carousel = ({pictures}) => {
 
     const [picture, setPicture] = useState();
-    let [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
 
     useEffect(()=>{
         setPicture(pictures[0])
-
-        
 
     }, [pictures[0]])
 
@@ -22,15 +20,12 @@ const Carousel = ({pictures}) => {
     const clickPrev = () => {
         console.log('start ' + count)
         if(count <= 0){
-            setCount(pictures.length - 1);
-            console.log('mer**')
+            count = pictures.length - 1;
         }else{
             count -= 1
-            console.log('put**')
         }
         console.log(count)
-        setPicture(pictures[count])
-
+        //setPicture(pictures[count]);
     };
 
 
@@ -42,10 +37,19 @@ const Carousel = ({pictures}) => {
                 </div>
             </div>
             <div className="carousel__nav">
-                <div className="prev" onClick={clickPrev}>
+                <div className="prev">
                     <img src={arrow} alt="prev" />
                 </div>
-                <div className="next">
+                <div className="next" onClick={()=>{
+                        if(count >= pictures.length){
+                            setCount(1)
+                            console.log('normalement ça doit reset')
+                        }
+                        setCount(count + 1)
+                        setPicture(pictures[count])
+                        console.log(count)
+                    }
+                }>
                     <img src={arrow} alt="next" />
                 </div>
             </div>
