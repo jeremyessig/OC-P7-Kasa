@@ -11,7 +11,7 @@ export default function Navbar() {
                 <img src={logo} alt="" />
             </NavLink>
             <div className="nav__links">
-                <NavLink to='/' className={(nav) => (nav.isActive ? "--active" : "")}>
+                <NavLink to='/' className={(nav) => (nav.isActive ? "--active" : "")} end>
                     Accueil
                 </NavLink>
                 <NavLink to='/about' className={(nav) => (nav.isActive ? "--active" : "")}>

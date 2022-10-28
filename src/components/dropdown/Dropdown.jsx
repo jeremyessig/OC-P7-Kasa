@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './dropdown.scss'
 import arrow from './arrow.png'
 
-const Dropdown = ( {props} ) => {
+const Dropdown = ( {label, text} ) => {
 
     const toggleVisibility = (event) =>{
         event.currentTarget.classList.toggle('--active');
@@ -11,17 +11,17 @@ const Dropdown = ( {props} ) => {
 
     let texts = [];
 
-    // Découpe les textes en paragraphe en les injectant dans un tableau
-    if(props.text instanceof Array == false){
-        texts.push(props.text);
+    //Découpe les textes en paragraphe en les injectant dans un tableau
+    if(text instanceof Array == false){
+        texts.push(text);
     }else{
-        texts = props.text;
+        texts = text;
     }
 
     return (
         <div className='dropdown' onClick={toggleVisibility}>
             <div className="dropdown__label">
-                <span>{props.label}</span>
+                <span>{label}</span>
                 <img src={arrow} alt="arrow" />
             </div>
             <div className="dropdown__text">

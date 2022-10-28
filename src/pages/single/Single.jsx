@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import Tag from '../../components/tag/Tag';
 import Rating from '../../components/rating/Rating';
 import Dropdown from '../../components/dropdown/Dropdown';
+import Dropdown2 from '../../components/dropdown/Dropdown2';
 import Carousel from '../../components/carousel/Carousel';
 
 const Single = () => {
@@ -77,10 +78,20 @@ const Single = () => {
             </div>
             <div className="single__info">
                 <div className="single__info__desc">
-                    <Dropdown props={desc} />
+                    {/* <Dropdown label={desc.label} text={desc.text} /> */}
+                    <Dropdown2 label={desc.label}> 
+                        <p>{desc.text}</p>
+                    </Dropdown2>
                 </div>
                 <div className="single__info__features">
-                    <Dropdown props={features} />
+                    {/* <Dropdown label={features.label} text={features.text} /> */}
+                    <Dropdown2 label={features.label}> 
+                        <ul>
+                            {
+                                features.text.map(feature => <li>{ feature }</li> )
+                            }
+                        </ul>
+                    </Dropdown2>
                 </div>
             </div>
         </div>
