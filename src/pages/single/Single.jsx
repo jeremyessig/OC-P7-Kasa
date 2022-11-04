@@ -15,12 +15,13 @@ const Single = () => {
     const location = useLocation();
     const path = location.pathname.split("/")[2];
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(true);
     const [post, setPost] = useState({});
     // On doit destructurer sinon JS panique...
     const [host, setHost] = useState({});
     const [tags, setTags] = useState([]);
     const [desc, setDesc] = useState({});
-    const [features, setFeatures] = useState({});
+    const [features, setFeatures] = useState({text:[]});
     const [pictures, setPictures] = useState([]);
 
     useEffect(()=>{
@@ -31,20 +32,23 @@ const Single = () => {
                 navigate('/404');
             }
             setPost(data);
-            setHost(data.host);
-            setTags(data.tags);
-            setDesc({label: 'Description', text: data.description});
-            setFeatures({label: 'Equipements', text: data.equipments});
-            setTags(data.tags);
-            setPictures(data.pictures);
+            // setHost(data.host);
+            // setTags(data.tags);
+            // setDesc({label: 'Description', text: data.description});
+            // setFeatures({label: 'Equipements', text: data.equipments});
+            // setTags(data.tags);
+            // setPictures(data.pictures);
+            setIsLoading(false)
         }
         getPost();
     }, []);
-
+    
+    // Bloque le premier rendu
+    if (isLoading) return <div style={{marginTop: "140px"}}>Chargement...</div>
     return (
         <div className='single'>
             <div className="single__carousel">
-                <Carousel pictures={pictures} />
+                <Carousel pictures={post.pictures} />
             </div>
             <div className="single__container">
                 <div className="left">
@@ -54,7 +58,7 @@ const Single = () => {
                     </div>
                     <div className="left__tags">
                         {
-                            tags.map((tag, index) => {
+                           post.tags.map((tag, index) => {
                                 return (
                                 <Tag key={index} tag={tag} />
                                 )
@@ -65,7 +69,7 @@ const Single = () => {
                 <div className="right">
                     <div className="right__host">
                         <div className="right__host__name">
-                            <span>{host.name}</span>
+                            <span>{post.host.name}</span>
                         </div>
                         <div className="right__host__picture">
                             <img src={host.picture} alt={host.name} />
@@ -79,16 +83,16 @@ const Single = () => {
             <div className="single__info">
                 <div className="single__info__desc">
                     {/* <Dropdown label={desc.label} text={desc.text} /> */}
-                    <Dropdown2 label={desc.label}> 
-                        <p>{desc.text}</p>
+                    <Dropdown2 label="Description"> 
+                        <p>{post.description}</p>
                     </Dropdown2>
                 </div>
                 <div className="single__info__features">
                     {/* <Dropdown label={features.label} text={features.text} /> */}
-                    <Dropdown2 label={features.label}> 
+                    <Dropdown2 label="Equipement"> 
                         <ul>
                             {
-                                features.text.map(feature => <li>{ feature }</li> )
+                                post.equipments.map(feature => <li>{ feature }</li> )
                             }
                         </ul>
                     </Dropdown2>
