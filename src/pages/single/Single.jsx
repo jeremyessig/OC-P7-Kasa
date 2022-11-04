@@ -72,7 +72,7 @@ const Single = () => {
                             <span>{post.host.name}</span>
                         </div>
                         <div className="right__host__picture">
-                            <img src={host.picture} alt={host.name} />
+                            <img src={post.host.picture} alt={post.host.name} />
                         </div>
                     </div>
                     <div className="right__rating">
