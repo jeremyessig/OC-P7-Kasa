@@ -16,6 +16,14 @@ const Carousel = ({pictures}) => {
         }
     };
 
+    const clickNext = () =>{
+        if(count >= pictures.length - 1){
+            setCount(0);
+        }else{
+            setCount(count + 1)
+        }
+    }
+
 
     return (
         <div className='carousel'>
@@ -28,7 +36,7 @@ const Carousel = ({pictures}) => {
                 <div className="prev" onClick={clickPrev}>
                     <img src={arrow} alt="prev" />
                 </div>
-                <div className="next">
+                <div className="next" onClick={clickNext}>
                     <img src={arrow} alt="next" />
                 </div>
             </div>
