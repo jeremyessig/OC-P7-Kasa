@@ -2,7 +2,6 @@ import React from 'react';
 import './carousel.scss';
 import arrow from './arrow.png';
 import { useState } from 'react';
-import { useEffect } from 'react';
 
 const Carousel = ({pictures}) => {
 
@@ -39,6 +38,9 @@ const Carousel = ({pictures}) => {
                 <div className="next" onClick={clickNext}>
                     <img src={arrow} alt="next" />
                 </div>
+            </div>
+            <div className="number">
+                <p> {count + 1} / {pictures.length}</p>
             </div>
         </div>
     );

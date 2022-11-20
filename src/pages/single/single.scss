@@ -54,7 +54,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: end;
+      justify-content: flex-end;
       gap: 1rem;
       &__name {
         color: #ff6060;
@@ -75,7 +75,7 @@
     }
     &__rating {
       display: flex;
-      justify-content: end;
+      justify-content: flex-end;
       align-items: center;
     }
   }
@@ -88,7 +88,7 @@
     &__features {
       display: flex;
       flex-direction: column;
-      justify-content: start;
+      justify-content: flex-start;
       align-items: center;
       width: 100%;
     }

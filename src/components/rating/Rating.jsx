@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import './rating.scss';
 import emptyStar from './empty.png';
 import filledStar from './filled.png';
@@ -18,7 +17,7 @@ const Rating = ({props}) => {
     for (var i = 0; i < rating ; i++) stars.push(filledStar)
 
     // Ajoute le reste d'étoiles vides
-    for (var i = 0; i < ratingScale - rating ; i++) stars.push(emptyStar)
+    for (var j = 0; j < ratingScale - rating ; j++) stars.push(emptyStar)
 
 
     return (

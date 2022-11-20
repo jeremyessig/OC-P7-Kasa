@@ -1,13 +1,11 @@
 import React from 'react';
 import './single.scss';
-import axios from "axios";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Tag from '../../components/tag/Tag';
 import Rating from '../../components/rating/Rating';
 import Dropdown from '../../components/dropdown/Dropdown';
-import Dropdown2 from '../../components/dropdown/Dropdown2';
 import Carousel from '../../components/carousel/Carousel';
 
 const Single = () => {
@@ -17,27 +15,15 @@ const Single = () => {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
     const [post, setPost] = useState({});
-    // On doit destructurer sinon JS panique...
-    const [host, setHost] = useState({});
-    const [tags, setTags] = useState([]);
-    const [desc, setDesc] = useState({});
-    const [features, setFeatures] = useState({text:[]});
-    const [pictures, setPictures] = useState([]);
 
     useEffect(()=>{
         const getPost = async () => {
-            const res = await axios.get('../data.json');
-            const data = res.data.find(post => post.id === path);
+            const res = await fetch('../data.json').then(res => res.json());
+            const data = res.find(post => post.id === path);
             if(!data){
                 navigate('/404');
             }
             setPost(data);
-            // setHost(data.host);
-            // setTags(data.tags);
-            // setDesc({label: 'Description', text: data.description});
-            // setFeatures({label: 'Equipements', text: data.equipments});
-            // setTags(data.tags);
-            // setPictures(data.pictures);
             setIsLoading(false)
         }
         getPost();
@@ -82,20 +68,18 @@ const Single = () => {
             </div>
             <div className="single__info">
                 <div className="single__info__desc">
-                    {/* <Dropdown label={desc.label} text={desc.text} /> */}
-                    <Dropdown2 label="Description"> 
+                    <Dropdown label="Description"> 
                         <p>{post.description}</p>
-                    </Dropdown2>
+                    </Dropdown>
                 </div>
                 <div className="single__info__features">
-                    {/* <Dropdown label={features.label} text={features.text} /> */}
-                    <Dropdown2 label="Equipement"> 
+                    <Dropdown label="Equipement"> 
                         <ul>
                             {
-                                post.equipments.map(feature => <li>{ feature }</li> )
+                                post.equipments.map((feature, index) => <li key={index} >{ feature }</li> )
                             }
                         </ul>
-                    </Dropdown2>
+                    </Dropdown>
                 </div>
             </div>
         </div>
