@@ -11,7 +11,6 @@ const Card = ({post}) => {
             <div className="card__title">
                 {post.title}
             </div>
-            <div className="card__overlay"></div>
         </Link>
     );
 };

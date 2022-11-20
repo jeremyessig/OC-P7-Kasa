@@ -1,6 +1,6 @@
 .dropdown {
   position: relative;
-  border-radius: 5px;
+  border-radius: 12px;
   height: 60px;
   font-family: "Montserrat", sans-serif;
   width: 100%;
@@ -16,7 +16,7 @@
     width: calc(100% - 2rem);
     background-color: #ff6060;
     z-index: 5;
-    border-radius: 5px;
+    border-radius: 12px;
     color: white;
     font-size: 1.2rem;
     padding: 0 1rem;
@@ -37,7 +37,7 @@
       width: auto;
       height: fit-content;
       background-color: #f7f7f7;
-      border-radius: 5px;
+      border-radius: 12px;
       color: #ff6060;
       font-size: 1.1rem;
       p {
@@ -48,6 +48,15 @@
       img {
         transform: rotate(180deg);
       }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .dropdown {
+    height: 52px;
+    &__label {
+      height: 52px;
     }
   }
 }

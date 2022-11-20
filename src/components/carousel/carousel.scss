@@ -27,22 +27,22 @@
     .next {
       position: absolute;
       top: 50%;
-      transform: translateY(-42px);
+      transform: translateY(-50%);
       transform-origin: center;
       transition: transform 0.2s ease-in-out;
       cursor: pointer;
     }
     .prev {
       left: 2rem;
-      transform: translateY(-42px) rotate(180deg);
+      transform: translateY(-50%) rotate(180deg);
       &:hover {
-        transform: translateY(-42px) rotate(180deg) scale(1.1);
+        transform: translateY(-50%) rotate(180deg) scale(1.1);
       }
     }
     .next {
       right: 2rem;
       &:hover {
-        transform: translateY(-42px) scale(1.1);
+        transform: translateY(-50%) scale(1.1);
       }
     }
   }
@@ -54,5 +54,32 @@
     font-size: 1.4rem;
     color: white;
     font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .carousel {
+    height: 320px;
+    border-radius: 12px;
+
+    &__nav {
+      .prev,
+      .next {
+        img {
+          object-fit: contain;
+          height: 28px;
+          width: auto;
+        }
+      }
+    }
+    .next {
+      right: 0.6rem;
+    }
+    .prev {
+      left: 0.6rem;
+    }
+    .number {
+      bottom: 0;
+    }
   }
 }

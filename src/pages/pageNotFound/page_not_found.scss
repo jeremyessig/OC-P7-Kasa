@@ -29,3 +29,12 @@
     }
   }
 }
+
+@media screen and (max-width: 800px) {
+  .page-not-found {
+    p {
+      font-size: 1.3rem;
+      padding: 0 1rem;
+    }
+  }
+}
