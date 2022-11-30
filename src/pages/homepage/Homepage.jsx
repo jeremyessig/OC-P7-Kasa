@@ -7,14 +7,9 @@ import './homepage.scss';
 
 const Homepage = () => {
 
-    const banner = {
-        title: "Chez vous, partout et ailleurs",
-        cover: BannerCover
-    }
-
     return (
         <div className='homepage'>
-            <Banner banner={banner} />
+            <Banner title={<h4><span>Chez vous, </span>partout et ailleurs</h4>} cover={BannerCover} />
             <Posts />
         </div>
     );

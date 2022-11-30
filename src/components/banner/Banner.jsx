@@ -1,14 +1,14 @@
 import React from 'react';
 import './banner.scss';
 
-const Banner = ({banner}) => {
+const Banner = ({title, cover}) => {
     return (
         <div className='banner'>
             <div className="banner__title">
-                <h4>{banner.title} </h4>
+               {title}
             </div>
             <div className="banner__cover">
-                <img className='img' src={banner.cover} alt="" />
+                <img className='img' src={cover} alt="" />
             </div>
         </div>
     );

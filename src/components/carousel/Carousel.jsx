@@ -31,17 +31,21 @@ const Carousel = ({pictures}) => {
                     <img src={pictures[count]} alt="" />
                 </div>
             </div>
+            {(pictures.length > 1 ) &&
+            <>            
             <div className="carousel__nav">
-                <div className="prev" onClick={clickPrev}>
+                 <button className="prev" onClick={clickPrev}>
                     <img src={arrow} alt="prev" />
-                </div>
-                <div className="next" onClick={clickNext}>
+                </button>
+                <button className="next" onClick={clickNext}>
                     <img src={arrow} alt="next" />
-                </div>
+                </button>
             </div>
             <div className="number">
                 <p> {count + 1} / {pictures.length}</p>
             </div>
+            </>
+            }
         </div>
     );
 };

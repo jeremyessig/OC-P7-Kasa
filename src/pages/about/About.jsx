@@ -5,10 +5,6 @@ import Banner from '../../components/banner/Banner';
 import Dropdown from '../../components/dropdown/Dropdown';
 
 const About = () => {
-        const banner = {
-        title: "",
-        cover: BannerCover
-    }
 
     const [data, setData] = useState([]);
 
@@ -20,7 +16,7 @@ const About = () => {
 
     return (
         <div className='about'>
-            <Banner banner={banner} />
+            <Banner cover={BannerCover} />
             <div className="dropdown-container">
                 {data.map((data, index) => {
                     return(

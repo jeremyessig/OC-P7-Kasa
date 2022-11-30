@@ -1,6 +1,6 @@
 import React from 'react';
 import './single.scss';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate,useParams  } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Tag from '../../components/tag/Tag';
@@ -10,8 +10,7 @@ import Carousel from '../../components/carousel/Carousel';
 
 const Single = () => {
 
-    const location = useLocation();
-    const path = location.pathname.split("/")[2];
+    const {id: path} = useParams()
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
     const [post, setPost] = useState({});
@@ -27,7 +26,7 @@ const Single = () => {
             setIsLoading(false)
         }
         getPost();
-    }, []);
+    }, [navigate, path]);
     
     // Bloque le premier rendu
     if (isLoading) return <div style={{marginTop: "140px"}}>Chargement...</div>
